@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Home Route
+Route::get('', 'HomeController@home')->name('home');
+
+
+// Courses Routes
+Route::resource('courses', CoursesController::class);
+
+// Students Routes
+Route::resource('students', StudentsController::class);
