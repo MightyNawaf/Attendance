@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Students;
+use App\Models\Courses;
+use Auth;
 
 class StudentsController extends Controller
 {
@@ -13,7 +16,7 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -23,8 +26,12 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        //
+        $course_id = auth()->user()->courses()->id;
+        
+        dd($course_id);
+        return view('students.create', compact('course_id'));
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -34,7 +41,12 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $students = new Students();
+        $students->student_name = $request->input('student_name');
+        $students->student_id = $request->input('student_id');
+        $students->course_id = $course;
+        $students->save();
+        return redirect()->route('students.index');
     }
 
     /**
@@ -45,7 +57,10 @@ class StudentsController extends Controller
      */
     public function show($id)
     {
-        //
+        $course_id=$id;
+        $course = Courses::find($id);
+        $students = Students::where('course_id', '=', $id)->get();
+        return view('students.show', compact('students', 'course_id', 'course'));
     }
 
     /**

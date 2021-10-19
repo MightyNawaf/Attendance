@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Home Route
-Route::get('', 'HomeController@index')->name('home');
+Route::get('', 'HomeController@index')->middleware('auth')->name('home');
 
 
 // Courses Routes
@@ -24,6 +24,8 @@ Route::get('/course-view/{$id}', 'HomeController@courseView')->name('course.view
 
 // Students Routes
 Route::resource('students', StudentsController::class)->middleware('auth');
+// Route::get('/students/{$id}', 'StudentsController@view')->name('students.view');
+
 
 Auth::routes();
 
