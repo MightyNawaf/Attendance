@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Courses;
 use Illuminate\Http\Request;
+use Auth;
 
 class CoursesController extends Controller
 {
@@ -13,9 +14,10 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        return view('courses');
-    }
+        $courses = Courses::all();
 
+        return view('courses.index', compact('courses'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -23,7 +25,7 @@ class CoursesController extends Controller
      */
     public function create()
     {
-        //
+        return view('courses.create');
     }
 
     /**
@@ -34,7 +36,14 @@ class CoursesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $courses = new Courses();
+        $courses->course_name = $request->input('course_name');
+        $courses->user_id = Auth::user()->id;
+        $courses->start_date = $request->input('start_date');
+        $courses->end_date = $request->input('end_date');
+        // $courses->isActive = $request->input('isActive');
+        $courses->save();
+        return redirect()->route('courses.index');
     }
 
     /**
@@ -45,7 +54,9 @@ class CoursesController extends Controller
      */
     public function show($id)
     {
-        //
+        $course = Courses::find($id);
+
+        return view('courses.show', compact('course'));
     }
 
     /**

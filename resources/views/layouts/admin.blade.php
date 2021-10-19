@@ -257,11 +257,11 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="pt-4">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="/admin" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
-                                    class="hide-menu">Dashboard</span></a></li>
+                                href="{{route('home')}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
+                                    class="hide-menu">Home</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="/admin/projects" aria-expanded="false"><i class="mdi mdi-archive"></i><span
-                                    class="hide-menu">Projects</span></a></li>
+                                href="{{route('courses.index')}}" aria-expanded="false"><i class="mdi mdi-archive"></i><span
+                                    class="hide-menu">Courses</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/admin/clients" aria-expanded="false"><i class="mdi mdi-account"></i><span
                                     class="hide-menu">Clients</span></a></li>

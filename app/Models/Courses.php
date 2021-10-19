@@ -5,13 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Course extends Model
+class Courses extends Model
 {
     use HasFactory;
     protected $fillable = [
         'course_name',
         'user_id',
-        'date'
+        'isActive',
+        'start_date',
+        'end_date'
     ];
     public function students(){
         return $this->hasMany(Student::Class);

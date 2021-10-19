@@ -14,11 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Home Route
-Route::get('', 'HomeController@home')->name('home');
+Route::get('', 'HomeController@index')->name('home');
 
 
 // Courses Routes
-Route::resource('courses', CoursesController::class);
+Route::resource('courses', CoursesController::class)->middleware('auth');
+Route::get('/course-view/{$id}', 'HomeController@courseView')->name('course.view');
+
 
 // Students Routes
-Route::resource('students', StudentsController::class);
+Route::resource('students', StudentsController::class)->middleware('auth');
+
+Auth::routes();
+
