@@ -17,8 +17,9 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->unsignedInteger('course_id');
             $table->string('student_name');
+            $table->string('student_phone')->nullable();
             $table->string('student_id');
-            $table->boolean('hasAttended')->nullable;
+            $table->boolean('hasAttended')->nullable();
             $table->timestamps();
         });
     }

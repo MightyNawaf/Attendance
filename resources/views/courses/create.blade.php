@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-<h1 class="text-right">Create Course</h1>
+<h1 class="text-right">Create a New Course</h1>
 <div class="card"></div>
 <form method="POST" action="{{route('courses.store')}}">
     @csrf
@@ -36,6 +36,6 @@
                 </div> --}}
   
     <!-- Submit button -->
-    <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+    <button type="submit" class="btn btn-primary btn-block mb-4">Create</button>
   </form>
 @endsection

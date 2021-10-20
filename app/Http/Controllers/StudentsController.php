@@ -42,7 +42,7 @@ class StudentsController extends Controller
         $students->student_name = $request->input('student_name');
         $students->student_id = $request->input('student_id');
         $students->course_id = $request->input('course_id');;
-        $students->hasAttended = $request->input('hasAttended');;
+        $students->student_phone = $request->input('student_phone');
         $students->save();
         return redirect()->route('courses.index');
     }
@@ -69,7 +69,8 @@ class StudentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = Students::find($id);
+        return view('students.edit', compact('student'));
     }
 
     /**
@@ -81,7 +82,12 @@ class StudentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $student = Students::find($id);
+        $student->student_name = $request->input('student_name');
+        $student->student_id = $request->input('student_id');
+        $student->student_phone = $request->input('student_phone');
+        $student->save();
+        return redirect()->route('courses.index');
     }
 
     /**
@@ -92,6 +98,8 @@ class StudentsController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+    $student = Students::find($id);
+    $student->delete();
+    return redirect()->route('courses.index');
+}
 }

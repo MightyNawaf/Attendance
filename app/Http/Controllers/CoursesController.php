@@ -67,9 +67,9 @@ class CoursesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $course = Courses::find($id);
+        return view('courses.edit', compact('course'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -79,7 +79,12 @@ class CoursesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $courses = Courses::find($id);
+        $courses->course_name = $request->input('course_name');
+        $courses->start_date = $request->input('start_date');
+        $courses->end_date = $request->input('end_date');
+        $courses->save();
+        return redirect()->route('courses.index');
     }
 
     /**
@@ -90,6 +95,8 @@ class CoursesController extends Controller
      */
     public function destroy($id)
     {
-        //
+    $course = Courses::find($id);
+    $course->delete();
+    return redirect()->route('courses.index');
     }
 }

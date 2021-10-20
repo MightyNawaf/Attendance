@@ -12,6 +12,7 @@ class Students extends Model
         'student_name',
         'student_id',
         'course_id',
+        'student_phone',
         'hasAttended'
     ];
     public function students(){

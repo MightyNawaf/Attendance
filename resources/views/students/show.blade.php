@@ -1,3 +1,13 @@
+<style>
+  table {
+  counter-reset: section;
+}
+
+.count:before {
+  counter-increment: section;
+  content: counter(section);
+}
+</style>
 @extends('layouts.admin')
 @section('content')
 <h1 class="text-right">Students of {{$course->course_name}}</h1>
@@ -11,20 +21,19 @@
       <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">University ID</th>
-      <th scope="col">Attendance</th>
+      <th scope="col">Manage</th>
     </tr>
   </thead>
   <tbody>
     @foreach ($students as $s)
         
     <tr>
-      <th scope="row">{{$s->id}}</th>
+      <th scope="row" class="count"></th>
       <td>{{$s->student_name}}</td>
       <td>{{$s->student_id}}</td>
       <td>
-        <form action="{{route('courses.update', $s->id)}}">
-        <button type="submit" class="btn btn-success">Make Present</button>
-        <button type="submit" class="btn btn-danger">Make Absent</button> 
+        <a type="submit" href="{{route('students.edit', $s->id)}}" class="btn btn-success">Edit</a>
+        <a type="submit" href="{{route('students.destroy', $s->id)}}" class="btn btn-danger">Delete</a> 
       </form> 
       </td>
     </tr>

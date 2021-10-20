@@ -11,7 +11,7 @@
     <meta name="description"
         content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Dashboard |  @yield('title')</title>
+    <title>{{env('APP_NAME')}} | @yield('title')</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
     <!-- Custom CSS -->
@@ -66,7 +66,7 @@
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            WINGS
+                            {{env('APP_NAME')}}
                         </span>
                         <!-- Logo icon -->
                         <!-- <b class="logo-icon"> -->
