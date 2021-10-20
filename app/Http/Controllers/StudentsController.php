@@ -16,7 +16,6 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        
     }
 
     /**
@@ -24,11 +23,9 @@ class StudentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        $course_id = auth()->user()->courses()->id;
-        
-        dd($course_id);
+        $course_id = $id;
         return view('students.create', compact('course_id'));
     }
     
@@ -44,9 +41,10 @@ class StudentsController extends Controller
         $students = new Students();
         $students->student_name = $request->input('student_name');
         $students->student_id = $request->input('student_id');
-        $students->course_id = $course;
+        $students->course_id = $request->input('course_id');;
+        $students->hasAttended = $request->input('hasAttended');;
         $students->save();
-        return redirect()->route('students.index');
+        return redirect()->route('courses.index');
     }
 
     /**

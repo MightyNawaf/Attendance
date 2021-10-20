@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use App\Models\Courses;
+
 
 class HomeController extends Controller
 {
@@ -23,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('homepage');
+        $id = Auth::user()->id;
+        $courses = Courses::where('user_id', '=', $id)->count();
+        return view('homepage', compact('courses'));
     }
 }

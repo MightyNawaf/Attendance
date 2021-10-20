@@ -23,9 +23,17 @@ Route::get('/course-view/{$id}', 'HomeController@courseView')->name('course.view
 
 
 // Students Routes
-Route::resource('students', StudentsController::class)->middleware('auth');
+// Route::resource('students', StudentsController::class)->middleware('auth');
+Route::get('/students/show/{id}', 'StudentsController@show')->name('students.show');
+Route::get('/students}', 'StudentsController@index')->name('students.index');
+Route::get('/students/create/{id}', 'StudentsController@create')->name('students.create');
+Route::post('/students/store', 'StudentsController@store')->name('students.store');
+
 // Route::get('/students/{$id}', 'StudentsController@view')->name('students.view');
 
 
 Auth::routes();
 
+Route::get('/auth', function(){
+    return view('home');
+});

@@ -14,7 +14,8 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        $courses = Courses::all();
+        $id = Auth::user()->id;
+        $courses = Courses::where('user_id', '=', $id)->get();
         return view('courses.index', compact('courses'));
     }
     /**
