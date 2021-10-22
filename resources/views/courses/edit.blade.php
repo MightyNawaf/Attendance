@@ -13,16 +13,10 @@
   
     <!-- Start date input -->
     <div class="form-outline mb-4">
-        <label class="form-label" for="form4Example2">Start Date:</label>
-      <input type="date" name="start_date" value="{{$course->start_date}}" id="form4Example2" class="form-control" />
-    </div>
-    <!-- End date input -->
-    <div class="form-outline mb-4">
-        <label class="form-label" for="form4Example2">End Date:</label>
-      <input type="date" name="end_date" value="{{$course->end_date}}" id="form4Example2" class="form-control" />
-    </div>
+        <label class="form-label" for="form4Example2">Number of Days:</label>
+      <input type="text" name="days" value="{{$course->days}}" id="form4Example2" class="form-control" />
   
     <!-- Submit button -->
-    <button type="submit" class="btn btn-primary btn-block mb-4">Save</button>
+    <button type="submit" class="btn btn-primary btn-block mt-4">Save</button>
   </form>
 @endsection

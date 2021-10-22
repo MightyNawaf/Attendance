@@ -39,8 +39,7 @@ class CoursesController extends Controller
         $courses = new Courses();
         $courses->course_name = $request->input('course_name');
         $courses->user_id = Auth::user()->id;
-        $courses->start_date = $request->input('start_date');
-        $courses->end_date = $request->input('end_date');
+        $courses->days = $request->input('days');
         // $courses->isActive = $request->input('isActive');
         $courses->save();
         return redirect()->route('courses.index');
@@ -81,8 +80,7 @@ class CoursesController extends Controller
     {
         $courses = Courses::find($id);
         $courses->course_name = $request->input('course_name');
-        $courses->start_date = $request->input('start_date');
-        $courses->end_date = $request->input('end_date');
+        $courses->days = $request->input('days');
         $courses->save();
         return redirect()->route('courses.index');
     }

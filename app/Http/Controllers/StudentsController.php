@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Students;
+use App\Models\Attendance;
 use App\Models\Courses;
 use Auth;
 
@@ -58,6 +59,11 @@ class StudentsController extends Controller
         $course_id=$id;
         $course = Courses::find($id);
         $students = Students::where('course_id', '=', $id)->get();
+        foreach($students as $s){
+            $attendances = [
+                'count' => Attendance::where([['course_id','=',$course_id],['student_id','=', $s->id]])->count()
+            ];
+            }
         return view('students.show', compact('students', 'course_id', 'course'));
     }
 

@@ -12,8 +12,7 @@ class Courses extends Model
         'course_name',
         'user_id',
         'isActive',
-        'start_date',
-        'end_date'
+        'days',
     ];
     public function students(){
         return $this->hasMany(Student::Class);

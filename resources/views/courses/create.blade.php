@@ -12,13 +12,8 @@
   
     <!-- Start date input -->
     <div class="form-outline mb-4">
-        <label class="form-label" for="form4Example2">Start Date:</label>
-      <input type="date" name="start_date" id="form4Example2" class="form-control" />
-    </div>
-    <!-- End date input -->
-    <div class="form-outline mb-4">
-        <label class="form-label" for="form4Example2">End Date:</label>
-      <input type="date" name="end_date" id="form4Example2" class="form-control" />
+        <label class="form-label" for="form4Example2">Number of Days:</label>
+      <input type="text" name="days" id="form4Example2" class="form-control" />
     </div>
   
     <!-- Checkbox -->

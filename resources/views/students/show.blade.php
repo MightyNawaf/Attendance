@@ -20,17 +20,23 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Name</th>
+      <th scope="col">Phone Number</th>
       <th scope="col">University ID</th>
+      <th scope="col">Attendance Precentage</th>
       <th scope="col">Manage</th>
     </tr>
   </thead>
   <tbody>
     @foreach ($students as $s)
-        
+
     <tr>
       <th scope="row" class="count"></th>
       <td>{{$s->student_name}}</td>
+      <td>{{$s->student_phone}}</td>
       <td>{{$s->student_id}}</td>
+      <td>
+        {{App\Models\Attendance::where([['course_id','=',$course_id],['student_id','=', $s->student_id],['hasAttended','=', '1']])->count() / $course->days * 100}} %
+      </td>
       <td>
         <a type="submit" href="{{route('students.edit', $s->id)}}" class="btn btn-success">Edit</a>
         <a type="submit" href="{{route('students.destroy', $s->id)}}" class="btn btn-danger">Delete</a> 

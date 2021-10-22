@@ -12,7 +12,7 @@
 <div class="card" style="width: 18rem;">      
     <div class="card-body">
       <h5 class="card-title">Attendance</h5>
-      <a href="#" class="btn btn-primary">View</a>
+      <a href="{{route('attendance.index', $course->id)}}" class="btn btn-primary">View</a>
     </div>
 </div>
 <div class="card"></div>

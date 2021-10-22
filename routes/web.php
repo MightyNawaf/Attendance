@@ -33,6 +33,16 @@ Route::get('/students/delete/{id}', 'StudentsController@destroy')->name('student
 Route::get('/students/edit/{id}', 'StudentsController@edit')->name('students.edit');
 Route::post('/students/update/{id}', 'StudentsController@update')->name('students.update');
 
+// Attendance Routes
+// Route::resource('students', StudentsController::class)->middleware('auth');
+Route::post('/attendance/show/{id}', 'AttendanceController@show')->name('attendance.show');
+Route::get('/attendance/{id}', 'AttendanceController@index')->name('attendance.index');
+Route::get('/attendance/create/{id}', 'AttendanceController@create')->name('attendance.create');
+Route::post('/attendance/store', 'AttendanceController@store')->name('attendance.store');
+Route::get('/attendance/delete/{id}', 'AttendanceController@destroy')->name('attendance.destroy');
+Route::get('/attendance/edit/{id}', 'AttendanceController@edit')->name('attendance.edit');
+Route::post('/attendance/update/{id}', 'AttendanceController@update')->name('attendance.update');
+
 
 // Route::get('/students/{$id}', 'StudentsController@view')->name('students.view');
 
