@@ -9,7 +9,6 @@ class Courses extends Model
 {
     
     use HasFactory;
-    public $primaryKey = 'competence_profile_id';
     protected $fillable = [
         'course_name',
         'user_id',
